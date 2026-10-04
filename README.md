@@ -1,47 +1,44 @@
-# GS009 CLKA Promo Finder
+# GS009 Staff Promo Hub
 
-Ready-to-upload static website. No npm, build command, database or login required.
+One homepage for the existing LA and CLKA promo finders. Upload this package into the existing `guitarheero-sketch/promo_product_list` repository. See **START_HERE.txt** for the upload steps.
 
-## Publish on GitHub Pages (easiest)
+## Pages
 
-1. Extract the ZIP on your computer.
-2. Create a **public** GitHub repository, for example `gs009-clka-promos`.
-3. Choose **Add file → Upload files**. Upload the extracted files and the entire `assets` folder into the repository root. Do not upload the ZIP itself or an enclosing folder. `index.html` must appear at the top level.
-4. Commit the files to `main`.
-5. Open **Settings → Pages**.
-6. Select **Deploy from a branch**, branch **main**, folder **/(root)**, and click **Save**.
-7. Wait for publication, then use **Visit site** on that settings page.
+- `index.html` — master homepage
+- `la.html` — Living Appliances
+- `clka.html` — Cooling, Laundry & Kitchen Appliances
 
-The usual public address is `https://YOUR-USERNAME.github.io/gs009-clka-promos/` (replace the username and repository name). Publication may take up to 10 minutes. No ChatGPT account is required to visit.
+The homepage uses large, fully clickable department cards. Future departments are clearly marked as unavailable, with no dead links. Both department pages have Home/Departments and LA/CLKA navigation. Navigation works with normal browser links, keyboard input and browser Back.
 
-## Files
+## One repository
 
-- `index.html`: webpage
-- `style.css`: responsive layout and styles
-- `app.js`: search, filters, product details, copying and calculator
-- `data.json`: 532 product entries, 24 bundles and campaign information
-- `assets/`: original campaign images
-- `.nojekyll`: serves these static files without a Jekyll build
-- `.github/workflows/pages.yml`: optional, manually triggered GitHub Actions deployment
+All files are in the root folder for easier GitHub upload. Internal paths are relative, so the whole package can also work under a different repository name. No page depends on the separate `LA_promo_list` website. The old LA URL will stop working if that repository is deleted.
 
-## Optional GitHub Actions deployment
+The existing GitHub Pages setup can stay in place. Keep the published source branch and folder you already use. This package adds no workflows or build dependencies.
 
-Use this only instead of the branch method above. Upload the `.github` folder too. Set **Settings → Pages → Source → GitHub Actions**. Then open **Actions → Deploy static webpage → Run workflow**, using `main`. Run it again after future updates. The workflow is manual so it does not interfere with the default branch method.
+## Add a department later
 
-## Updates and data rules
+1. Add the new department page and its supporting files to the same repo. Give each department its own file prefix to avoid filename conflicts, for example `tv.html`, `tv-app.js`, `tv-style.css` and `tv-data.js`.
+2. In `index.html`, add another real `<a class="department-card" href="tv.html">…</a>` inside `department-grid`. Copy an existing card and replace its code, title, description, icon and link.
+3. Remove the matching “Coming later” item from `future-grid`.
+4. On the new page, include `portal.css` and the `department-switch` navigation from either existing department page. Point its Departments link to `index.html`.
+5. Check its links, data and images after publishing.
 
-This package contains the October 2026 reference loaded on 4 October 2026. It does not pull new prices or stock automatically. Replace the relevant files and commit again when updating. With branch publishing enabled, changes publish automatically.
+Adding a card alone does not create a product finder. The future section is only a placeholder until the department page and its data are supplied.
 
-- 3X takes priority for overlapping clearance offers.
-- S-Coin is calculated on the listed member / Block price, before Instant Save.
-- 100 S-Coin = RM1; supplier Shooting rewards also use 100 points = RM1.
-- FR and Backend are excluded.
-- Installation uses EW for Temerloh.
-- Source discrepancies remain flagged; check system prices before quoting.
-- Product titles use workbook descriptions, linked researched references or general category labels.
+## File names
 
-To preview locally, use a static web server (for example `python -m http.server 8000` in this folder) and open `http://localhost:8000`. Double-clicking `index.html` may block loading `data.json`; this restriction does not apply on GitHub Pages.
+- `portal.css` styles the homepage and shared department navigation.
+- `la-*` files belong to LA.
+- `clka-*` files belong to CLKA.
+- `clka-img-*` files are the original CLKA campaign images.
 
-Calculation and data checks passed for the original app. Browser layout and actual GitHub deployment have not been tested in this package.
+For a new monthly promo list, update the corresponding department data and date labels. The homepage deliberately does not claim a shared month or live stock availability; each department retains its own dates and notices.
 
-Official instructions: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+## Source and verification
+
+Department HTML, styles, scripts and data were retrieved from your two GitHub repositories on 4 October 2026. The original CLKA campaign images are included. The migration changes page and asset paths and adds navigation; it does not recalculate or change promotion data.
+
+Checks cover internal page/style/script/data/image links, preservation of department data, absence of old-repository dependencies, JavaScript syntax, and both existing department logic checks adapted to the new paths. No new visual browser test was available in this environment.
+
+The homepage needs no JavaScript. LA loads its bundled data directly; CLKA loads its JSON over HTTP. To preview every section locally, use a local web server (for example `python -m http.server 8000`) and visit `http://localhost:8000/`. Double-clicking the homepage is enough to preview the department buttons but may not let CLKA load its JSON.

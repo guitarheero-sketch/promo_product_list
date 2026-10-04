@@ -1,0 +1,42 @@
+GS009 STAFF PROMO HUB
+
+KEEP THIS EXISTING REPOSITORY:
+promo_product_list
+
+YOUR ONE MAIN LINK WILL STAY:
+https://guitarheero-sketch.github.io/promo_product_list/
+
+UPLOAD INSTRUCTIONS
+1. Download and extract this ZIP.
+2. Open https://github.com/guitarheero-sketch/promo_product_list
+3. Choose Add file > Upload files.
+4. Select ALL the extracted files and drop them into GitHub.
+   Upload the files themselves, not the ZIP or the outside folder.
+   All files go in the main/root file list. There are no folders to upload.
+5. Choose Commit changes. Existing files with matching names are replaced.
+6. Wait for GitHub Pages to finish publishing, then open your main link.
+   Your existing Pages configuration can stay as it is.
+7. Check BOTH department buttons, the product lists and a CLKA campaign image.
+   Each department has a Departments link to return home.
+8. Once both sections work, you can delete the separate LA_promo_list repo.
+   The combined site includes LA locally and does not need that repo.
+
+You do not need a new repository, a .github folder, or a build command.
+You do not need to delete the old app.js, style.css, data.json or assets files
+in the retained repo: the combined site uses its own named files.
+
+If you still see the old homepage, press Ctrl+F5 to refresh.
+After deleting LA_promo_list, its old link will stop working.
+Share the main link above with staff instead.
+
+WHAT CHANGED
+- A new homepage with large LA and CLKA department buttons.
+- Departments navigation and direct LA/CLKA switching on both pages.
+- Both full department lists, scripts and images included in this package.
+- Future TV & Audio, Smartphones and Digital Gadgets shown as not added yet.
+  These are labels, not broken buttons.
+- Product data and promotion rules are unchanged from your two repositories.
+
+NOT YET PUBLISHED BY THIS PACKAGE
+These are upload-ready files. Your GitHub repositories have not been changed
+or deleted automatically.
