@@ -42,3 +42,11 @@ Department HTML, styles, scripts and data were retrieved from your two GitHub re
 Checks cover internal page/style/script/data/image links, preservation of department data, absence of old-repository dependencies, JavaScript syntax, and both existing department logic checks adapted to the new paths. No new visual browser test was available in this environment.
 
 The homepage needs no JavaScript. LA loads its bundled data directly; CLKA loads its JSON over HTTP. To preview every section locally, use a local web server (for example `python -m http.server 8000`) and visit `http://localhost:8000/`. Double-clicking the homepage is enough to preview the department buttons but may not let CLKA load its JSON.
+
+## Promotion refresh — 14 October 2026
+
+CLKA data refreshed from `CLKA Overall Ongoing Promotion - Oct 26 (1).xlsx` and the V-Care R4 memo dated 14 October 2026. All workbook product records were reconciled by exact model and sheet; row references were refreshed. Includes the nine-model Panasonic KA-CHING campaign (11 October 2026–10 January 2027), five dated LG October offers, and all 21 V-Care models from the latest R4 table (8 air conditioners, 13 TVs). Older quoted memo revisions are not duplicated.
+
+V-Care vouchers are model-specific and for PlusOne members; advertised warranty is total coverage, not additional years. The main-unit discount, S-Coin cashback and V-Care voucher remain separate. Blank S-Coin rates remain unknown. Conflicting workbook member prices are flagged for system confirmation. Original source PDFs/emails and supplier contact lists are not published.
+
+`clka-data.json` is used by the current CLKA page; legacy `data.json` and `app.js` are kept consistent. LA data is unchanged.
