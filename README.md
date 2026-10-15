@@ -50,3 +50,13 @@ CLKA data refreshed from `CLKA Overall Ongoing Promotion - Oct 26 (1).xlsx` and 
 V-Care vouchers are model-specific and for PlusOne members; advertised warranty is total coverage, not additional years. The main-unit discount, S-Coin cashback and V-Care voucher remain separate. Blank S-Coin rates remain unknown. Conflicting workbook member prices are flagged for system confirmation. Original source PDFs/emails and supplier contact lists are not published.
 
 `clka-data.json` is used by the current CLKA page; legacy `data.json` and `app.js` are kept consistent. LA data is unchanged.
+
+## TV & Audio department
+
+`tv.html` is the separate TV department, linked from the hub and department navigation. `tv-data.json` contains 250 TV, audio and accessory model entries from the October workbook, revised trade-in list and V-Care memo. Thirteen TV V-Care entries were moved out of CLKA.
+
+Manufacturer research checked 14 October 2026: 199 official model references, 17 overseas references, 4 identity-only confirmations and 30 unconfirmed exact models. Per-model links, supported features and limitations are in the detail view. Workbook category codes are not technical panel specifications.
+
+Price selection uses an in-period standalone source row, prioritised by source. Expired LG 10.10 and September PWP records remain as history. Trade-in eligibility follows the 32-model revised PDF, with the Toshiba workbook-only discrepancy flagged. Rewards are separate from payment prices.
+
+Validation: JavaScript syntax and execution with DOM stubs; all model detail views, campaign and guide views, normalised model search, trade-in/V-Care filters, validity and conditional-price selection, CLKA migration, and department links. Visual browser QA was unavailable in this environment.
