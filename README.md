@@ -1,62 +1,34 @@
-# GS009 Staff Promo Hub
+# GS009 November Promo Desk
 
-One homepage for the existing LA and CLKA promo finders. Upload this package into the existing `guitarheero-sketch/promo_product_list` repository. See **START_HERE.txt** for the upload steps.
+A responsive staff reference for Grand Senheng Temerloh, refreshed from six November 2026 files on 10 November 2026. Open `index.html` through GitHub Pages or an HTTP server. Existing `la.html`, `clka.html` and `tv.html` links now open the matching department in the unified catalogue; `dg.html` does the same for Digital & Apple.
 
-## Pages
+## Staff workflow
 
-- `index.html` — master homepage
-- `la.html` — Living Appliances
-- `clka.html` — Cooling, Laundry & Kitchen Appliances
+Search full or partial model codes, brands and product names across departments. Filter by category, basket/line, S-Coin rate and offer type. Cards show cash prices separately from S-Coin; details include copyable PAC/voucher/SCF codes, gift and installation conditions, source rows, and Shooting PS. Saved products are stored only in the current browser. Campaigns show current supplier leaflets extracted from the uploaded workbooks. The light interface supports phone widths, keyboard navigation and a compact list view.
 
-The homepage uses large, fully clickable department cards. Future departments are clearly marked as unavailable, with no dead links. Both department pages have Home/Departments and LA/CLKA navigation. Navigation works with normal browser links, keyboard input and browser Back.
+## Approved source rules
 
-## One repository
+- ME is the primary source for general products. TV/Audio and DG (including Apple) use their own lists first; only absent fields fall back to ME. An explicit zero is never treated as absent.
+- TV 3X uses the November TVAUD X-stock **revised** BLK, S-Coin and Instant Save columns.
+- Prices and rates are resolved field by field with visible provenance. An existing final price already includes its row's voucher; replacement vouchers are applied without double deduction.
+- Cash price does not subtract cashback, TNG rewards, trade-in S-Coin or staff incentives. PWP/MBO, gift-item and bundle prices are not standalone headline prices.
+- Promotions appear only during their effective period in `Asia/Kuala_Lumpur`. Future records are excluded from cards, filters, search, campaign lists and detail/source views. The page checks for a date rollover every 30 seconds. This is display filtering, not access control; the static source data is public.
+- DG MP2 R1 applies 3–5 Nov, R2 6–10 Nov, R3 11–15 Nov, R4 from 16 Nov. The original applies 1–2 Nov. Section-level dates also apply to colour variants below each heading (including OPPO's 6–8 Nov cashback upgrade).
+- The X9e Pro 9–10 Nov rebate conflict is flagged for system confirmation. The Sharp PN70HC1E package remark conflicts with its voucher arithmetic, so a selling price is not guessed.
+- Shooting PS is published as authorised by the owner. Supplier contacts, warehouse quantities and hidden report metadata are excluded.
 
-All files are in the root folder for easier GitHub upload. Internal paths are relative, so the whole package can also work under a different repository name. No page depends on the separate `LA_promo_list` website. The old LA URL will stop working if that repository is deleted.
+## Data and assets
 
-The existing GitHub Pages setup can stay in place. Keep the published source branch and folder you already use. This package adds no workflows or build dependencies.
+`november-data.json` contains 5,474 distinct model codes and source-specific records from ME, CLKA, LA, TVAUD, DG and Apple. This is a reference list, not live GS009 inventory. Products with only reward support may have no confirmed current price. The TVAUD source covers X-stock, not the complete regular TV catalogue.
 
-## Add a department later
+The importer uses actual merged cells plus bounded DG section headings. Default validity for undated monthly rows is 1–30 November; explicitly dated campaigns retain their periods. Missing data stays unknown. Source file names and sheet/row (or PDF page/record) references are retained.
 
-1. Add the new department page and its supporting files to the same repo. Give each department its own file prefix to avoid filename conflicts, for example `tv.html`, `tv-app.js`, `tv-style.css` and `tv-data.js`.
-2. In `index.html`, add another real `<a class="department-card" href="tv.html">…</a>` inside `department-grid`. Copy an existing card and replace its code, title, description, icon and link.
-3. Remove the matching “Coming later” item from `future-grid`.
-4. On the new page, include `portal.css` and the `department-switch` navigation from either existing department page. Point its Departments link to `index.html`.
-5. Check its links, data and images after publishing.
+`product-images.json` maps verified exact-model imagery and its source. The HP Smart Tank 580 image is from HP Malaysia's Smart Tank page. Other cards use labelled category illustrations rather than unverified product photos. `nov-assets/` includes current workbook campaign visuals and the two populated Apple PDF pages for PAC/gift verification. Shared Apple gift remarks are not guessed from adjacent product rows; use the reference page.
 
-Adding a card alone does not create a product finder. The future section is only a placeholder until the department page and its data are supplied.
+Legacy October JSON/JS/CSS remain for historical metadata and importer name/specification enrichment only. They are not loaded by the current interface. No October price or campaign is carried into the new data automatically.
 
-## File names
+## Validation and maintenance
 
-- `portal.css` styles the homepage and shared department navigation.
-- `la-*` files belong to LA.
-- `clka-*` files belong to CLKA.
-- `clka-img-*` files are the original CLKA campaign images.
+The import and regression-test scripts are retained locally rather than published. Fifteen checks passed, covering Malaysia midnight, future-only records, 11/16 November revisions, section date inheritance, source priorities, blank-vs-zero fallback, voucher arithmetic, conditional prices, Apple columns and campaign image existence. Desktop search/detail rendering and a 390px mobile layout were checked in a browser.
 
-For a new monthly promo list, update the corresponding department data and date labels. The homepage deliberately does not claim a shared month or live stock availability; each department retains its own dates and notices.
-
-## Source and verification
-
-Department HTML, styles, scripts and data were retrieved from your two GitHub repositories on 4 October 2026. The original CLKA campaign images are included. The migration changes page and asset paths and adds navigation; it does not recalculate or change promotion data.
-
-Checks cover internal page/style/script/data/image links, preservation of department data, absence of old-repository dependencies, JavaScript syntax, and both existing department logic checks adapted to the new paths. No new visual browser test was available in this environment.
-
-The homepage needs no JavaScript. LA loads its bundled data directly; CLKA loads its JSON over HTTP. To preview every section locally, use a local web server (for example `python -m http.server 8000`) and visit `http://localhost:8000/`. Double-clicking the homepage is enough to preview the department buttons but may not let CLKA load its JSON.
-
-## Promotion refresh — 14 October 2026
-
-CLKA data refreshed from `CLKA Overall Ongoing Promotion - Oct 26 (1).xlsx` and the V-Care R4 memo dated 14 October 2026. All workbook product records were reconciled by exact model and sheet; row references were refreshed. Includes the nine-model Panasonic KA-CHING campaign (11 October 2026–10 January 2027), five dated LG October offers, and all 21 V-Care models from the latest R4 table (8 air conditioners, 13 TVs). Older quoted memo revisions are not duplicated.
-
-V-Care vouchers are model-specific and for PlusOne members; advertised warranty is total coverage, not additional years. The main-unit discount, S-Coin cashback and V-Care voucher remain separate. Blank S-Coin rates remain unknown. Conflicting workbook member prices are flagged for system confirmation. Original source PDFs/emails and supplier contact lists are not published.
-
-`clka-data.json` is used by the current CLKA page; legacy `data.json` and `app.js` are kept consistent. LA data is unchanged.
-
-## TV & Audio department
-
-`tv.html` is the separate TV department, linked from the hub and department navigation. `tv-data.json` contains 250 TV, audio and accessory model entries from the October workbook, revised trade-in list and V-Care memo. Thirteen TV V-Care entries were moved out of CLKA.
-
-Manufacturer research checked 14 October 2026: 199 official model references, 17 overseas references, 4 identity-only confirmations and 30 unconfirmed exact models. Per-model links, supported features and limitations are in the detail view. Workbook category codes are not technical panel specifications.
-
-Price selection uses an in-period standalone source row, prioritised by source. Expired LG 10.10 and September PWP records remain as history. Trade-in eligibility follows the 32-model revised PDF, with the Toshiba workbook-only discrepancy flagged. Rewards are separate from payment prices.
-
-Validation: JavaScript syntax and execution with DOM stubs; all model detail views, campaign and guide views, normalised model search, trade-in/V-Care filters, validity and conditional-price selection, CLKA migration, and department links. Visual browser QA was unavailable in this environment.
+The app is buildless HTML/CSS/JS with relative asset paths. Existing GitHub Pages deployment continues on `main` at the repository root. `dist/` and `.openai/` are ignored local preview files, not deployment requirements.
